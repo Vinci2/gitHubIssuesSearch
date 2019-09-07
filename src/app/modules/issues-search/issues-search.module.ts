@@ -1,0 +1,18 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IssuesSearchMainContainerComponent } from './containers/issues-search-main-container/issues-search-main-container.component';
+import { SearchControlContainerComponent } from './containers/search-control-container/search-control-container.component';
+import { IssuesContainerComponent } from './containers/issues-container/issues-container.component';
+import { RouterModule } from '@angular/router';
+import { issuesRoutes } from './issues-search.routes';
+
+
+
+@NgModule({
+  declarations: [IssuesSearchMainContainerComponent, SearchControlContainerComponent, IssuesContainerComponent],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(issuesRoutes)
+  ]
+})
+export class IssuesSearchModule { }
