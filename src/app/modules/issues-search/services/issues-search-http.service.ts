@@ -17,6 +17,6 @@ export class IssuesSearchHttpService {
   constructor(private httpClient: HttpClient) {}
 
   public fetchGithubIssues(data: any) {
-    return this.fakeData.pipe(delay(3000));
+    return this.fakeData.pipe(delay(1000));
   }
 }

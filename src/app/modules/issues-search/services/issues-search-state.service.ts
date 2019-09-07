@@ -23,4 +23,9 @@ export class IssuesSearchStateService {
     public getLikedIssues(): any {
         return this.getLikedIssues$;
     }
+
+    public toggleIssueLikeStatus(issueId): void {
+        this.store.dispatch(new fromIssuesSearchActions.ToggleLikedIssueState(issueId));
+        console.log('toggle', issueId);
+    }
 }

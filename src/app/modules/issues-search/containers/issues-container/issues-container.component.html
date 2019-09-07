@@ -1,1 +1,1 @@
-<p>issues-container works!</p>
+<app-issues-table [githubIssues]= "githubIssues$ | async" [likedIssuesIds] = "likedIssues$ | async" (likeIssue)="onIssueLiked($event)"></app-issues-table>

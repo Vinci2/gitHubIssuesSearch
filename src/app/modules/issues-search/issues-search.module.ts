@@ -12,11 +12,12 @@ import { IssuesSearchStateService } from './services/issues-search-state.service
 import { EffectsModule } from '@ngrx/effects';
 import { IssuesSearchEffects } from './store/effects/issues-search.effects';
 import * as fromIssuesSearchReducer from './store/reducers/issues-search.reducer';
+import { IssuesTableComponent } from './components/issues-table/issues-table.component';
 
 
 
 @NgModule({
-  declarations: [IssuesSearchMainContainerComponent, SearchControlContainerComponent, IssuesContainerComponent, IssuesTextSearchComponent],
+  declarations: [IssuesSearchMainContainerComponent, SearchControlContainerComponent, IssuesContainerComponent, IssuesTextSearchComponent, IssuesTableComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(issuesRoutes),
