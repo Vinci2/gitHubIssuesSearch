@@ -12,4 +12,8 @@ export class SearchControlContainerComponent implements OnInit {
   ngOnInit() {
   }
 
+  public onChangeTextSearch(pattern: string) {
+    console.log('pattern', pattern);
+  }
+
 }

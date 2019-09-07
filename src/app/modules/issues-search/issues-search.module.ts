@@ -7,11 +7,12 @@ import { RouterModule } from '@angular/router';
 import { issuesRoutes } from './issues-search.routes';
 import { StoreModule } from '@ngrx/store';
 import * as fromIssuesSearchReducer from './store/reducers/issues-search.reducer';
+import { IssuesTextSearchComponent } from './components/issues-text-search/issues-text-search.component';
 
 
 
 @NgModule({
-  declarations: [IssuesSearchMainContainerComponent, SearchControlContainerComponent, IssuesContainerComponent],
+  declarations: [IssuesSearchMainContainerComponent, SearchControlContainerComponent, IssuesContainerComponent, IssuesTextSearchComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(issuesRoutes),
