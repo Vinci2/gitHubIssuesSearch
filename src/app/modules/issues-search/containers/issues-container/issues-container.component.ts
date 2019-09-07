@@ -16,6 +16,7 @@ export class IssuesContainerComponent implements OnInit {
   ngOnInit() {
     this.githubIssues$ = this.issuesSearchStateService.getGithubIssues();
     this.likedIssues$ = this.issuesSearchStateService.getLikedIssues();
+    this.issuesSearchStateService.fetchLikedIssues();
   }
 
   public onIssueLiked(issueId: string) {

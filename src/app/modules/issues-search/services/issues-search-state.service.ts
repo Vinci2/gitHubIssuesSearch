@@ -7,25 +7,28 @@ import * as fromIssuesSearchActions from '../store/actions/issues-search.actions
 
 @Injectable()
 export class IssuesSearchStateService {
-    private getGithubIssues$ = this.store.select(fromIssuesSearchSelectors.getGithubIssues);
-    private getLikedIssues$ = this.store.select(fromIssuesSearchSelectors.getLikedIssues);
+  private getGithubIssues$ = this.store.select(fromIssuesSearchSelectors.getGithubIssues);
+  private getLikedIssues$ = this.store.select(fromIssuesSearchSelectors.getLikedIssues);
 
-    constructor(private store: Store<formIssuesSearchReducer.State>) {}
+  constructor(private store: Store<formIssuesSearchReducer.State>) {}
 
-    public fetchGitIssues(data: any): void {
-        this.store.dispatch(new fromIssuesSearchActions.FetchGithubIssuesStartAction(data));
-    }
+  public fetchGitIssues(data: any): void {
+    this.store.dispatch(new fromIssuesSearchActions.FetchGithubIssuesStartAction(data));
+  }
 
-    public getGithubIssues(): any {
-        return this.getGithubIssues$;
-    }
+  public getGithubIssues(): any {
+    return this.getGithubIssues$;
+  }
 
-    public getLikedIssues(): any {
-        return this.getLikedIssues$;
-    }
+  public getLikedIssues(): any {
+    return this.getLikedIssues$;
+  }
 
-    public toggleIssueLikeStatus(issueId): void {
-        this.store.dispatch(new fromIssuesSearchActions.ToggleLikedIssueState(issueId));
-        console.log('toggle', issueId);
-    }
+  public toggleIssueLikeStatus(issueId): void {
+    this.store.dispatch(new fromIssuesSearchActions.ToggleLikedIssueState(issueId));
+  }
+
+  public fetchLikedIssues(): void {
+    this.store.dispatch(new fromIssuesSearchActions.FetchLikedIssuesStartAction());
+  }
 }

@@ -9,6 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { environment } from '../environments/environment';
+import { LocalStorageAccessService } from './services/local-storage-access.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     environment.production ? [] : StoreDevtoolsModule.instrument()
   ],
-  providers: [],
+  providers: [LocalStorageAccessService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
