@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IssuesSearchStateService } from '../../services/issues-search-state.service';
 
 @Component({
   selector: 'app-search-control-container',
@@ -7,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchControlContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private issuesSearchStateService: IssuesSearchStateService) { }
 
   ngOnInit() {
   }
 
   public onChangeTextSearch(pattern: string) {
+    this.issuesSearchStateService.fetchGitIssues(pattern);
     console.log('pattern', pattern);
   }
 

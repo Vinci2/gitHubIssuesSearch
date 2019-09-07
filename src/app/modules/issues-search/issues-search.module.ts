@@ -6,8 +6,12 @@ import { IssuesContainerComponent } from './containers/issues-container/issues-c
 import { RouterModule } from '@angular/router';
 import { issuesRoutes } from './issues-search.routes';
 import { StoreModule } from '@ngrx/store';
-import * as fromIssuesSearchReducer from './store/reducers/issues-search.reducer';
 import { IssuesTextSearchComponent } from './components/issues-text-search/issues-text-search.component';
+import { IssuesSearchHttpService } from './services/issues-search-http.service';
+import { IssuesSearchStateService } from './services/issues-search-state.service';
+import { EffectsModule } from '@ngrx/effects';
+import { IssuesSearchEffects } from './store/effects/issues-search.effects';
+import * as fromIssuesSearchReducer from './store/reducers/issues-search.reducer';
 
 
 
@@ -16,7 +20,9 @@ import { IssuesTextSearchComponent } from './components/issues-text-search/issue
   imports: [
     CommonModule,
     RouterModule.forChild(issuesRoutes),
+    EffectsModule.forFeature([IssuesSearchEffects]),
     StoreModule.forFeature(fromIssuesSearchReducer.REDUCER_NAME, fromIssuesSearchReducer.reducer)
-  ]
+  ],
+  providers: [IssuesSearchHttpService, IssuesSearchStateService]
 })
 export class IssuesSearchModule { }
