@@ -5,6 +5,8 @@ import { SearchControlContainerComponent } from './containers/search-control-con
 import { IssuesContainerComponent } from './containers/issues-container/issues-container.component';
 import { RouterModule } from '@angular/router';
 import { issuesRoutes } from './issues-search.routes';
+import { StoreModule } from '@ngrx/store';
+import * as fromIssuesSearchReducer from './store/reducers/issues-search.reducer';
 
 
 
@@ -12,7 +14,8 @@ import { issuesRoutes } from './issues-search.routes';
   declarations: [IssuesSearchMainContainerComponent, SearchControlContainerComponent, IssuesContainerComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(issuesRoutes)
+    RouterModule.forChild(issuesRoutes),
+    StoreModule.forFeature(fromIssuesSearchReducer.REDUCER_NAME, fromIssuesSearchReducer.reducer)
   ]
 })
 export class IssuesSearchModule { }
