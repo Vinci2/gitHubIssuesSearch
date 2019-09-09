@@ -1,0 +1,5 @@
+<p>issues-table works!</p>
+
+<div class="issue" *ngFor="let issue of githubIssues">
+    <button (click)="onIssueLiked(issue.id)">LikeIt</button>{{issue.name}} <span *ngIf="isIssueLiked(issue.id)">THIS ONE IS LIKED</span>
+</div>
