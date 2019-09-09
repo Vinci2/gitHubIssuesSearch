@@ -1,9 +1,10 @@
 import * as fromIssuesSearchAction from '../actions/issues-search.actions';
+import { GitHubIssue, IssueAuthor } from '../../models/issues-search.models';
 
 export const REDUCER_NAME = 'issues-search-reducer';
 
 export interface State {
-  githubIssues: any[];
+  githubIssues: GitHubIssue[];
   isFetchingIssues: boolean;
   likedIssues: any[];
 }
@@ -19,7 +20,13 @@ export function reducer(state: State = initialState, action: fromIssuesSearchAct
     case fromIssuesSearchAction.FETCH_GITHUB_ISSUES_START:
       return { ...state, isFetchingIssues: true };
     case fromIssuesSearchAction.FETCH_GITHUB_ISSUES_SUCCESS:
-      return { ...state, isFetchingIssues: false, githubIssues: action.payload };
+      return {
+        ...state,
+        isFetchingIssues: false,
+        githubIssues: action.payload.map((issue: GitHubIssue) => {
+          return computeIssueModel(issue);
+        })
+      };
     case fromIssuesSearchAction.FETCH_LIKED_ISSUES_SUCCESS:
       return { ...state, likedIssues: action.payload || [] };
     case fromIssuesSearchAction.TOGGLE_LIKED_ISSUE_STATE:
@@ -43,4 +50,19 @@ export function reducer(state: State = initialState, action: fromIssuesSearchAct
     default:
       return state;
   }
+}
+
+function computeIssueModel(issues: GitHubIssue): GitHubIssue {
+  const authorData: IssueAuthor = {
+    avatar_url: issues.user.avatar_url,
+    login: issues.user.login,
+    url: issues.user.url
+  };
+
+  return {
+    body: issues.body,
+    id: issues.id,
+    url: issues.url,
+    user: authorData
+  };
 }
