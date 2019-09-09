@@ -14,16 +14,29 @@ import { IssuesSearchEffects } from './store/effects/issues-search.effects';
 import * as fromIssuesSearchReducer from './store/reducers/issues-search.reducer';
 import { IssuesTableComponent } from './components/issues-table/issues-table.component';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material';
 
 
 @NgModule({
-  declarations: [IssuesSearchMainContainerComponent, SearchControlContainerComponent, IssuesContainerComponent, IssuesTextSearchComponent, IssuesTableComponent],
+  declarations: [
+    IssuesSearchMainContainerComponent,
+
+    SearchControlContainerComponent,
+    IssuesContainerComponent,
+    IssuesTextSearchComponent,
+    IssuesTableComponent
+  ],
   imports: [
     CommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
     RouterModule.forChild(issuesRoutes),
     EffectsModule.forFeature([IssuesSearchEffects]),
     StoreModule.forFeature(fromIssuesSearchReducer.REDUCER_NAME, fromIssuesSearchReducer.reducer)
   ],
   providers: [IssuesSearchHttpService, IssuesSearchStateService]
 })
-export class IssuesSearchModule { }
+export class IssuesSearchModule {}
