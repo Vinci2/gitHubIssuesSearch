@@ -1,1 +1,3 @@
+<div *ngIf="getIsFetchingIssues$ | async" class="loader">Loading....</div>
 <app-issues-table [githubIssues]= "githubIssues$ | async" [likedIssuesIds] = "likedIssues$ | async" (likeIssue)="onIssueLiked($event)"></app-issues-table>
+<div *ngIf="(githubIssues$ | async) === null" class="init-msg">Your data will appear hear</div>

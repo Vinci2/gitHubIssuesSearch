@@ -16,7 +16,7 @@ export class IssuesTextSearchComponent implements OnInit {
   @Output() changeTextSearch = new EventEmitter<string>();
 
   private DEBOUNCE_TIME = 1000;
-  private SEARCH_PATTERN_MIN_LENGTH = 3;
+  private SEARCH_PATTERN_MIN_LENGTH = 2;
   private emitFilter = new Subject<string>();
 
   constructor() {}

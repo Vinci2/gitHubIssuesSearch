@@ -9,6 +9,7 @@ import * as fromIssuesSearchActions from '../store/actions/issues-search.actions
 export class IssuesSearchStateService {
   private getGithubIssues$ = this.store.select(fromIssuesSearchSelectors.getGithubIssues);
   private getLikedIssues$ = this.store.select(fromIssuesSearchSelectors.getLikedIssues);
+  private getIsFetchingIssues$ = this.store.select(fromIssuesSearchSelectors.getIsFetchingIssues);
 
   constructor(private store: Store<formIssuesSearchReducer.State>) {}
 
@@ -24,6 +25,10 @@ export class IssuesSearchStateService {
     return this.getLikedIssues$;
   }
 
+  public getIsFetchingIssues(): any {
+      return this.getIsFetchingIssues$;
+  }
+
   public toggleIssueLikeStatus(issueId): void {
     this.store.dispatch(new fromIssuesSearchActions.ToggleLikedIssueState(issueId));
   }
@@ -31,4 +36,5 @@ export class IssuesSearchStateService {
   public fetchLikedIssues(): void {
     this.store.dispatch(new fromIssuesSearchActions.FetchLikedIssuesStartAction());
   }
+  
 }
