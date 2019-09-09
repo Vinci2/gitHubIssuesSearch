@@ -9,6 +9,7 @@ import { LocalStorageAccessService } from 'src/app/services/local-storage-access
 import { IssuesSearchHttpService } from '../../services/issues-search-http.service';
 import { IssuesSearchStateService } from '../../services/issues-search-state.service';
 import * as fromIssuesSearchActions from '../actions/issues-search.actions';
+import { GitHubIssue, FetchGitHubIssuesRes } from '../../models/issues-search.models';
 
 @Injectable()
 export class IssuesSearchEffects {
@@ -24,8 +25,8 @@ export class IssuesSearchEffects {
     ofType(fromIssuesSearchActions.FETCH_GITHUB_ISSUES_START),
     switchMap((action: any) => {
       return this.issuesSearchHttpService.fetchGithubIssues(action).pipe(
-        switchMap((data: any) => {
-          return of(new fromIssuesSearchActions.FetchGithubIssuesSuccessAction(data));
+        switchMap((data: FetchGitHubIssuesRes) => {
+          return of(new fromIssuesSearchActions.FetchGithubIssuesSuccessAction(data.items));
         }),
         catchError(() => {
           return of(new fromIssuesSearchActions.FetchGithubIssuesFailAction());

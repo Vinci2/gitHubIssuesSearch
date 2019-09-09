@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { GitHubIssue } from '../../models/issues-search.models';
 
 export const FETCH_GITHUB_ISSUES_START = '[Issues Search] fetch github issues start';
 export const FETCH_GITHUB_ISSUES_SUCCESS = '[Issues Search] fetch github issues success';
@@ -15,7 +16,7 @@ export class FetchGithubIssuesStartAction implements Action {
 
 export class FetchGithubIssuesSuccessAction implements Action {
   public readonly type = FETCH_GITHUB_ISSUES_SUCCESS;
-  constructor(public payload: any) {}
+  constructor(public payload: GitHubIssue[]) {}
 }
 
 export class FetchGithubIssuesFailAction implements Action {
