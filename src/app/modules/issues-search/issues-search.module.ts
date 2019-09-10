@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { IssuesRowHeaderComponent } from './components/issues-row-header/issues-row-header.component';
+import { IssuesRowBodyComponent } from './components/issues-row-body/issues-row-body.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     SearchControlContainerComponent,
     IssuesContainerComponent,
     IssuesTextSearchComponent,
-    IssuesTableComponent
+    IssuesTableComponent,
+    IssuesRowHeaderComponent,
+    IssuesRowBodyComponent
   ],
   imports: [
     CommonModule,

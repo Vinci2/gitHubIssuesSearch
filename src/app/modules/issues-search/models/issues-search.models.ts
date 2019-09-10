@@ -4,6 +4,7 @@ export interface GitHubIssue {
   title: string;
   body: string;
   user: IssueAuthor;
+  created_at: string;
 }
 
 export interface IssueAuthor {

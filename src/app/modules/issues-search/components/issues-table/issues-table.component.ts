@@ -18,6 +18,8 @@ export class IssuesTableComponent implements OnInit {
 
   public onIssueLiked(issueId: string): void {
     this.likeIssue.emit(issueId);
+    console.log('issieLIKED', issueId);
+    
   }
 
   public isIssueLiked(issueId: string): boolean {

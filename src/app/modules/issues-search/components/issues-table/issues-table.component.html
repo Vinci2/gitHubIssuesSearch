@@ -1,11 +1,12 @@
 <div class="issue-wrapper" *ngFor="let issue of githubIssues">
     <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <div class="issue-main-data">
+          <app-issues-row-header [issue]="issue" [isLiked]="isIssueLiked(issue.id)" (likeIssue)="onIssueLiked($event)"></app-issues-row-header>
+          <!-- <div class="issue-main-data">
               <span>{{issue.id}}</span>
               <span>{{issue.title}}</span>
               <button (click)="prevent($event)"> pressME!</button>
-            </div>
+            </div> -->
         </mat-expansion-panel-header>
         
         <div class="issue-details-data">

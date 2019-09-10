@@ -22,6 +22,7 @@ export class IssuesContainerComponent implements OnInit {
   }
 
   public onIssueLiked(issueId: string) {
+    console.log('issueLIKED: ', issueId);
     this.issuesSearchStateService.toggleIssueLikeStatus(issueId);
   }
 }

@@ -10,6 +10,8 @@ export class IssuesSearchHttpService {
   constructor(private httpClient: HttpClient) {}
 
   public fetchGithubIssues(searchPattern: string): Observable<FetchGitHubIssuesRes> {
+    console.log('searchPattern: ', searchPattern);
+    
     return this.httpClient
       .get<FetchGitHubIssuesRes>(`https://api.github.com/search/issues?q=${searchPattern}+in:title+state:open`)
       .pipe(delay(2000));
