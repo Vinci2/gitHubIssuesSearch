@@ -1,5 +1,30 @@
-<p>issues-table works!</p>
-
-<div class="issue" *ngFor="let issue of githubIssues">
-    <button (click)="onIssueLiked(issue.id)">LikeIt</button>{{issue.name}} <span *ngIf="isIssueLiked(issue.id)">THIS ONE IS LIKED</span>
+<div class="issue-wrapper" *ngFor="let issue of githubIssues">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <div class="issue-main-data">
+              <span>{{issue.id}}</span>
+              <span>{{issue.title}}</span>
+              <button (click)="prevent($event)"> pressME!</button>
+            </div>
+        </mat-expansion-panel-header>
+        
+        <div class="issue-details-data">
+            <div class="avatar_wrapper">
+                <img [src]="issue.user.avatar_url">
+            </div>
+        </div>
+    </mat-expansion-panel>
 </div>
+
+    <!-- <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Self aware panel
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel> -->

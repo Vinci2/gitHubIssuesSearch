@@ -61,6 +61,7 @@ function computeIssueModel(issues: GitHubIssue): GitHubIssue {
 
   return {
     body: issues.body,
+    title: issues.title,
     id: issues.id,
     url: issues.url,
     user: authorData

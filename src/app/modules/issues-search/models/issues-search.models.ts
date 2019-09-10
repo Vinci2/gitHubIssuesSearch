@@ -1,6 +1,7 @@
 export interface GitHubIssue {
   id: number;
   url: string;
+  title: string;
   body: string;
   user: IssueAuthor;
 }

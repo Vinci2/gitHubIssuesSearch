@@ -11,13 +11,13 @@ import { IssuesSearchStateService } from '../../services/issues-search-state.ser
 export class IssuesContainerComponent implements OnInit {
   public githubIssues$: Observable<any>;
   public likedIssues$: Observable<any>;
-  public getIsFetchingIssues$: Observable<any>;
+  public isFetchingIssues$: Observable<any>;
   constructor(private issuesSearchStateService: IssuesSearchStateService) {}
 
   ngOnInit() {
     this.githubIssues$ = this.issuesSearchStateService.getGithubIssues();
     this.likedIssues$ = this.issuesSearchStateService.getLikedIssues();
-    this.getIsFetchingIssues$ = this.issuesSearchStateService.getIsFetchingIssues();
+    this.isFetchingIssues$ = this.issuesSearchStateService.getIsFetchingIssues();
     this.issuesSearchStateService.fetchLikedIssues();
   }
 

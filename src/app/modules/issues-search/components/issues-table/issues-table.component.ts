@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { GitHubIssue } from '../../models/issues-search.models';
 
 @Component({
   selector: 'app-issues-table',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./issues-table.component.scss']
 })
 export class IssuesTableComponent implements OnInit {
-  @Input() githubIssues: any[];
+  @Input() githubIssues: GitHubIssue[];
   @Input() likedIssuesIds: any[];
   @Output() likeIssue = new EventEmitter<string>();
 
@@ -23,6 +24,13 @@ export class IssuesTableComponent implements OnInit {
     return this.likedIssuesIds.some((likedIssueId) => {
       return likedIssueId === issueId;
     });
+  }
+
+  public prevent(event:Event): void {
+    event.preventDefault();
+    event.stopPropagation();
+
+
   }
 
 }

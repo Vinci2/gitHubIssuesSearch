@@ -17,6 +17,8 @@ import { IssuesTableComponent } from './components/issues-table/issues-table.com
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { MatInputModule } from '@angular/material';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatExpansionModule,
+    MatProgressSpinnerModule,
     RouterModule.forChild(issuesRoutes),
     EffectsModule.forFeature([IssuesSearchEffects]),
     StoreModule.forFeature(fromIssuesSearchReducer.REDUCER_NAME, fromIssuesSearchReducer.reducer)
