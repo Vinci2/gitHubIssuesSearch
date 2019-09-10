@@ -21,6 +21,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { IssuesRowHeaderComponent } from './components/issues-row-header/issues-row-header.component';
 import { IssuesRowBodyComponent } from './components/issues-row-body/issues-row-body.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { IssuesRowBodyComponent } from './components/issues-row-body/issues-row-
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
     MatIconModule,
     MatExpansionModule,
     MatProgressSpinnerModule,

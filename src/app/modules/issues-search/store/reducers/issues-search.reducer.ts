@@ -61,14 +61,15 @@ function computeIssueModel(issues: GitHubIssue): GitHubIssue {
   const authorData: IssueAuthor = {
     avatar_url: issues.user.avatar_url,
     login: issues.user.login,
-    url: issues.user.url
+    url: issues.user.url,
+    html_url: issues.user.html_url
   };
 
   return {
     body: issues.body,
     title: issues.title,
     id: issues.id,
-    url: issues.url,
+    html_url: issues.html_url,
     user: authorData,
     created_at: format(new Date(issues.created_at), DATE_FORMA)
   };
