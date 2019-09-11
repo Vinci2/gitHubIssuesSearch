@@ -1,13 +1,8 @@
-<div class="issues-container__loader-wrapper" *ngIf="isFetchingIssues$ | async">
-    <div class="positioner">
-        <span class="issues-container__spinner-text">Fetching data...</span>
-        <mat-spinner class="issues-container__spinner"></mat-spinner>
-    </div>
-</div>
+<app-overlay-loader [isLoading]= "isFetchingIssues$ | async"></app-overlay-loader>
 
-            <div class="issues-container__main-wrapepr">
-    
-    <app-issues-table [githubIssues]= "githubIssues$ | async" [likedIssuesIds] = "likedIssues$ | async" (likeIssue)="onIssueLiked($event)"></app-issues-table>
-    <div *ngIf="(githubIssues$ | async) === null" class="init-msg">Your data will appear hear</div>
-    <div *ngIf="!(githubIssues$ | async).length" class="init-msg">Try a different query</div>
+<div class="issues-container__main-wrapper">
+    <div class="issues-container__table-wrapper">
+        <app-issues-table [githubIssues]="githubIssues$ | async" [likedIssuesIds]="likedIssues$ | async" (likeIssue)="onIssueLiked($event)"></app-issues-table>
+    </div>
+    <div *ngIf="infoMsg" class="issues-container__info-msg-block">{{infoMsg}}</div>
 </div>

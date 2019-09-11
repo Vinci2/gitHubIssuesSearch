@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Subject } from 'rxjs';
 import {
   map,
@@ -10,7 +10,8 @@ import {
 @Component({
   selector: 'app-issues-text-search',
   templateUrl: './issues-text-search.component.html',
-  styleUrls: ['./issues-text-search.component.scss']
+  styleUrls: ['./issues-text-search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IssuesTextSearchComponent implements OnInit {
   @Output() changeTextSearch = new EventEmitter<string>();

@@ -22,18 +22,19 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { IssuesRowHeaderComponent } from './components/issues-row-header/issues-row-header.component';
 import { IssuesRowBodyComponent } from './components/issues-row-body/issues-row-body.component';
 import {MatCardModule} from '@angular/material/card';
+import { OverlayLoaderComponent } from './components/overlay-loader/overlay-loader.component';
 
 
 @NgModule({
   declarations: [
     IssuesSearchMainContainerComponent,
-
     SearchControlContainerComponent,
     IssuesContainerComponent,
     IssuesTextSearchComponent,
     IssuesTableComponent,
     IssuesRowHeaderComponent,
-    IssuesRowBodyComponent
+    IssuesRowBodyComponent,
+    OverlayLoaderComponent,
   ],
   imports: [
     CommonModule,

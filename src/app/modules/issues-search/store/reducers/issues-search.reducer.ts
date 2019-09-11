@@ -68,7 +68,7 @@ function computeIssueModel(issues: GitHubIssue): GitHubIssue {
   return {
     body: issues.body,
     title: issues.title,
-    id: issues.id,
+    id: issues.id + '',
     html_url: issues.html_url,
     user: authorData,
     created_at: format(new Date(issues.created_at), DATE_FORMA)
