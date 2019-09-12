@@ -1,6 +1,13 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
 
 .issue-test-search__input-field {
  max-width: 50rem;
  display: block;
- margin: 5rem auto;   
+ margin: 2rem auto;
+ @include media-breakpoint-up(md) {
+    margin: 5rem auto;
+  }   
 }

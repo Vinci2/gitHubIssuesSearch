@@ -1,8 +1,13 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
 :host {
   display: block;
   position: relative;
   flex: 1;
   overflow: auto;
+ background-color: #007bff1f;
 }
 
 .issues-container {
@@ -11,11 +16,20 @@
     overflow: auto;
   }
   &__table-wrapper {
-    width: 50%;
+    
+    width: 100%;
     margin: 0 auto;
+
+    @include media-breakpoint-up(lg) {
+      width: 90%;
+    }
+    @include media-breakpoint-up(xl) {
+      width: 75%;
+    }
   }
 
   &__info-msg-block {
+    margin-top: 2rem;
     text-align: center;
     font-size: 1.3rem;
   }

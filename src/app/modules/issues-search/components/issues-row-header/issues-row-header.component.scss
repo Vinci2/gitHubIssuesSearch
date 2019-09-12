@@ -1,22 +1,64 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
 :host {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 4rem;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 1rem;
+  height: auto;
+  min-height: 100px;
+  flex-direction: column;
+  align-items: center;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    height: auto;
+    min-height: 55px;
+  }
 }
 
 .issues-row-header {
-
-    
-    &__like-icon {
-        color: black;
-        &:hover {
-            color: orange;
-        }
-        &--active {
-            color: orange;
-        }
+  &__like-icon {
+    margin-right: 0;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    user-select: none;
+    @include media-breakpoint-up(md) {
+      margin-right: 2rem;
+      position: static;
     }
+    color: black;
+    &:hover {
+      color: orange;
+    }
+    &--active {
+      color: orange;
+    }
+  }
+
+  &__issues-creation-date {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin-left: 0;
+    min-width: 10rem;
+    user-select: none;
+    @include media-breakpoint-up(md) {
+    position: static;
+      margin-left: 2rem;
+    }
+  }
+
+  &__issue-title {
+    margin: 3rem 0;
+    user-select: none;
+    @include media-breakpoint-up(md) {
+      margin: 0;
+    }
+  }
 }

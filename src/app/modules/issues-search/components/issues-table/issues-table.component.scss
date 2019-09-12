@@ -1,3 +1,17 @@
 .issue-wrapper {
     margin: 1rem 2rem;
+
+    // &__expansion-panel {
+    //     position: relative;
+    // }
 }
+
+.issue-table__expansion-panel {
+    position: relative;
+}
+
+// ::ng-deep .mat-expansion-panel-header
+// {
+//     height: 190px !important;
+
+// }
