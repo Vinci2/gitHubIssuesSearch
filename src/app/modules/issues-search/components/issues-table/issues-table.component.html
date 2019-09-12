@@ -1,6 +1,6 @@
 <div class="issue-wrapper" *ngFor="let issue of githubIssues">
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
+    <mat-expansion-panel class="issue-table__expansion-panel">
+        <mat-expansion-panel-header [collapsedHeight]="'auto'" [expandedHeight]="'auto'">
           <app-issues-row-header [issue]="issue" [isLiked]="isIssueLiked(issue.id)" (likeIssue)="onIssueLiked($event)"></app-issues-row-header>
         </mat-expansion-panel-header>
 
