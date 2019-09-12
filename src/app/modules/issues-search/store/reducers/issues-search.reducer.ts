@@ -1,5 +1,8 @@
+import { format } from 'date-fns';
+
 import * as fromIssuesSearchAction from '../actions/issues-search.actions';
 import { GitHubIssue, IssueAuthor } from '../../models/issues-search.models';
+
 
 export const REDUCER_NAME = 'issues-search-reducer';
 
@@ -14,6 +17,8 @@ export const initialState: State = {
   isFetchingIssues: false,
   likedIssues: []
 };
+
+const DATE_FORMA = 'yyyy-MM-dd';
 
 export function reducer(state: State = initialState, action: fromIssuesSearchAction.Actions): State {
   switch (action.type) {
@@ -56,13 +61,16 @@ function computeIssueModel(issues: GitHubIssue): GitHubIssue {
   const authorData: IssueAuthor = {
     avatar_url: issues.user.avatar_url,
     login: issues.user.login,
-    url: issues.user.url
+    url: issues.user.url,
+    html_url: issues.user.html_url
   };
 
   return {
     body: issues.body,
-    id: issues.id,
-    url: issues.url,
-    user: authorData
+    title: issues.title,
+    id: issues.id + '',
+    html_url: issues.html_url,
+    user: authorData,
+    created_at: format(new Date(issues.created_at), DATE_FORMA)
   };
 }

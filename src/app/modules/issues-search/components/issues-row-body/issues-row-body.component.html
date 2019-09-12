@@ -1,0 +1,8 @@
+<div class="issues-row-body__avatar-wrapper">
+    <img class="issues-row-body__avatar-img" [src]="issue.user.avatar_url">
+    <div class="issues-row-body__login"><a [href]="issue.user.html_url">{{issue.user.login}}</a></div>
+</div>
+<mat-card class="issues-row-body__description-container">
+    <div class="issues-row-body__description-label"><span>Description: </span></div>
+    {{issue.body || '...'}}
+</mat-card>

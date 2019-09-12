@@ -24,7 +24,7 @@ export class IssuesSearchEffects {
   fetchIssues$: Observable<Action> = this.actions$.pipe(
     ofType(fromIssuesSearchActions.FETCH_GITHUB_ISSUES_START),
     switchMap((action: any) => {
-      return this.issuesSearchHttpService.fetchGithubIssues(action).pipe(
+      return this.issuesSearchHttpService.fetchGithubIssues(action.payload).pipe(
         switchMap((data: FetchGitHubIssuesRes) => {
           return of(new fromIssuesSearchActions.FetchGithubIssuesSuccessAction(data.items));
         }),

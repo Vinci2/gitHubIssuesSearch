@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { environment } from '../environments/environment';
 import { LocalStorageAccessService } from './services/local-storage-access.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LocalStorageAccessService } from './services/local-storage-access.servi
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),

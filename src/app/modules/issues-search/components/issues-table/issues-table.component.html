@@ -1,5 +1,9 @@
-<p>issues-table works!</p>
+<div class="issue-wrapper" *ngFor="let issue of githubIssues">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <app-issues-row-header [issue]="issue" [isLiked]="isIssueLiked(issue.id)" (likeIssue)="onIssueLiked($event)"></app-issues-row-header>
+        </mat-expansion-panel-header>
 
-<div class="issue" *ngFor="let issue of githubIssues">
-    <button (click)="onIssueLiked(issue.id)">LikeIt</button>{{issue.name}} <span *ngIf="isIssueLiked(issue.id)">THIS ONE IS LIKED</span>
+        <app-issues-row-body [issue]="issue"></app-issues-row-body>
+    </mat-expansion-panel>
 </div>

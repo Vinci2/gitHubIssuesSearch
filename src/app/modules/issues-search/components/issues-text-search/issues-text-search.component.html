@@ -1,2 +1,5 @@
-<p>issues-text-search works!</p>
-<input placeholder="please type some text" (input)="onTextSearchChange($event)">
+<mat-form-field appearance="outline" class="issue-test-search__input-field">
+    <mat-label>Issue title</mat-label>
+    <input autocomplete="off" matInput (input)="onTextSearchChange($event)">
+    <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>

@@ -1,0 +1,11 @@
+<mat-icon
+    class="issues-row-header__like-icon"
+    [ngClass]="{'issues-row-header__like-icon--active': isLiked}"
+    (click)="onIssueLiked($event)">
+    {{computeIconType()}}
+</mat-icon>
+<div class="issues-row-header__issue-title">
+    <span>issue title: </span>
+    <a (click)="onTitleClicked($event)" [href]="issue.html_url">{{issue.title}}</a>
+</div>
+<div class="issues-row-header__issues-creation-date"><span>reported at: </span>{{issue.created_at}}</div>

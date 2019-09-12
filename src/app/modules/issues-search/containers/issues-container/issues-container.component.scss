@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  position: relative;
+  flex: 1;
+  overflow: auto;
+}
+
+.issues-container {
+  &__main-wrapper {
+    height: 100%;
+    overflow: auto;
+  }
+  &__table-wrapper {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  &__info-msg-block {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+}
+
+
